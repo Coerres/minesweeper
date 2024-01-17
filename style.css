@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body, html  {
+    margin: 30px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.3em;
+    background: #484745;
+    color: #000000;
+}
+
+.title  {
+    font-size: 40px;
+    color: #FFC107;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 11px;
+}
+
+.container  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top {
+    width: 400px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FEECB7;
+    border-top: 10px solid #FEECB7;
+    border-left: 10px solid #FEECB7;
+    border-right: 10px solid #FEECB7;
+}
+
+.flag-box, .timer-box   {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 125px;
+    height: 75px;
+    background: #FFFFFF;
+    border: 5px solid;
+    border-color: #F7DF99 #F9F3E3 #F7DF99 #F9F3E3;
+    color: #FFC107;
+}
+
+.emoji-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85px;
+    height: 85px;
+    margin: 0 20px 0 20px;
+    padding-top: 5px;
+    background-color: #FEECB7;
+    border: 5px solid;
+    border-color: #F7DF99 #F9F3E3 #F7DF99 #F9F3E3;
+    outline: none;
+    font-size: 2.1em;
+    cursor: pointer;
+}
+
+.grid   {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    background: #FEECB7;
+    border: 10px solid #FEECB7;
+    margin-bottom: 20px;
+}
