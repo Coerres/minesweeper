@@ -8,7 +8,7 @@ body, html  {
     font-family: 'Roboto Mono', monospace;
     font-size: 1.3em;
     background: #484745;
-    color: #FEFEFC;
+    color: #000000;
 }
 
 .title  {
@@ -30,8 +30,36 @@ body, html  {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #FDE292;
-    border-top: 10px solid #FDE292;
-    border-left: 10px solid #FDE292;
-    border-right: 10px solid #FDE292;
+    background: #FEECB7;
+    border-top: 10px solid #FEECB7;
+    border-left: 10px solid #FEECB7;
+    border-right: 10px solid #FEECB7;
+}
+
+.flag-box, .timer-box   {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 125px;
+    height: 75px;
+    background: #FFFFFF;
+    border: 5px solid;
+    border-color: #F7DF99 #F9F3E3 #F7DF99 #F9F3E3;
+    color: #FFC107;
+}
+
+.emoji-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85px;
+    height: 85px;
+    margin: 0 20px 0 20px;
+    padding-top: 5px;
+    background-color: #FEECB7;
+    border: 5px solid;
+    border-color: #F7DF99 #F9F3E3 #F7DF99 #F9F3E3;
+    outline: none;
+    font-size: 2.1em;
+    cursor: pointer;
 }
