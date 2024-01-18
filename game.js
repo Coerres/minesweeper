@@ -55,9 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
     }
 
     //Add flag with right click
