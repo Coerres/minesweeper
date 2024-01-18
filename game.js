@@ -15,4 +15,40 @@ document.addEventListener('DOMContentLoaded', () => {
     let count = 0;
     let intervalRef = null;
     let isGameOver = false;
+
+
+
+
+
+
+
+
+
+
 } )
+
+//Create game board
+function createBoard(){
+
+}
+
+//Add flag with right click
+function addFlag(someInput){
+
+}
+
+//Action after clicking on square
+function click(){
+
+}
+
+//Check neighbring squares once square is clicked
+function checkSquare(){
+
+}
+
+//Timer
+let startTime = function (){}
+
+//Game over function
+function gameOver(someInput){}
