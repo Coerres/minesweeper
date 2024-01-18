@@ -26,6 +26,33 @@ document.addEventListener('DOMContentLoaded', () => {
         emojiBtn.innerHTML = '😀';
         flagsLeft.innerHTML = bombAmount;
 
+        //Create titles with bombs
+        for (let i = 0; i < width * width ; i++){
+            const square = document.createElement('div');
+            square.setAttribute('id', i);
+            square.classList.add(shuffledArray[i]);
+            grid.appendChild(square);
+            square.push(square)
+
+            //Normal click
+            square.addEventListener('click', function (e){
+                if(isGameOver) {return}
+                emojiBtn.innerHTML = '😬';
+                click(square);
+            });
+
+            //Left click [for flag checking]
+            square.oncontextmenu = function (e){
+                e.preventDefault();
+                addFlag(square);
+            }
+
+            //Mouseover
+            square.addEventListener('mouseover', function (e){
+                emojiBtn.innerHTML = '😖';
+            });
+        }
+
 
 
 
