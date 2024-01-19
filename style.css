@@ -74,19 +74,15 @@ body, html  {
     margin-bottom: 20px;
 }
 
-<<<<<<< HEAD
-.grid div {
-=======
+
+
 .grid div   {
->>>>>>> devel
     width: 40px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-<<<<<<< HEAD
-=======
 }
 
 .valid, .bomb   {
@@ -95,5 +91,4 @@ body, html  {
     border: 5px solid;
     border-color: #F7DF99 #F9F3E3 #F7DF99 #F9F3E3;
     box-sizing: border-box;
->>>>>>> devel
 }
