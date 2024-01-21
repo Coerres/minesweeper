@@ -77,16 +77,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add flag with right click
     function addFlag(square) {
-        // Implement the functionality to add a flag to the square
-        if (square.classList.contains('flag')) {
-            square.classList.remove('flag');
-            flags--;
-        } else if (flags < bombAmount) {
-            square.classList.add('flag');
-            flags++;
-            checkWin();
-        }
-        flagsLeft.innerHTML = bombAmount - flags;
+       if(isGameOver) {return}
+       if(!square.classList.contains('checked') && (flags < bombAmount)) {
+           if(!square.classList.contains('flag')) {
+               square.classList.add('flag');
+               square.innerHTML = '🚩';
+               flags++;
+               flagsLeft.innerHTML = bombAmount - flags;
+           } else {
+               square.classList.remove('flag');
+               square.innerHTML = '';
+               flags--;
+               flagsLeft.innerHTML = bombAmount - flags;
+           }
+       }
     }
 
     // Action after clicking on square
