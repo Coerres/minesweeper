@@ -108,8 +108,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(total == 2) { square.classList.add('two')};
                 if(total == 3) { square.classList.add('three')};
                 if(total == 4) { square.classList.add('four')};
+                square.innerHTML = total;
+                return
             }
         }
+        square.classList.add('checked');
+        //30:50
     }
 
     // Check neighboring squares once square is clicked
