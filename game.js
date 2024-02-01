@@ -179,6 +179,22 @@ document.addEventListener('DOMContentLoaded', () => {
         removeEventListener('click', startTime);
     }
 
+    window.addEventListener('click', startTime);
+
+    function timeUp(){
+        timer.innerHTML = 'END';
+        emojiBtn.innerHTML = '😔';
+        result.innerHTML = 'Out Of Time!';
+        isGameOver = 'true';
+
+        //Showing all bombs
+        squares.forEach(square => {
+            if(square.classList.contains('bombs')){
+                square.innerHTML = '💣';
+            }
+        })
+    }
+
 
 
 
