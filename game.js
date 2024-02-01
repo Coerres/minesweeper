@@ -163,13 +163,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 const newSquare = document.getElementById(newId);
                 Click(newSquare);
             }
-        })
+        }, 10);
     }
-
     // Timer
     let startTime = function () {
-        // Implement the timer logic
+        intervalRef = setInterval(() =>{
+          count+=10;
+          let s = Math.floor((count / 1000));
+          timer.innerHTML = s;
+          if(s >= 90){
+              clearInterval(intervalRef);
+              timeUp();
+          }
+        }, 10);
+        removeEventListener('click', startTime);
     }
+
+
+
+
 
     // Game over function
     function gameOver(square) {
