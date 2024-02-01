@@ -192,25 +192,40 @@ document.addEventListener('DOMContentLoaded', () => {
             if(square.classList.contains('bombs')){
                 square.innerHTML = '💣';
             }
-        })
+        });
     }
 
 
-
-
-
     // Game over function
-    function gameOver(square) {}
+    function gameOver(square) {
         clearInterval(intervalRef);
         timer.innerHTML = 'END';
         emojiBtn.innerHTML = '😵‍💫';
         result.innerHTML = 'BOOM! Game Over!';
         isGameOver = 'true';
 
-
+        //Showing all bombs
+        squares.forEach(square => {
+            if (square.classList.contains('bombs')) {
+                square.innerHTML = '💣';
+            }
+        });
+    }
 
     function checkForWin(){
-
+        let matches = 0;
+        for(let i = 0; i < squares.length; i++){
+            if(squares[i].classList.contains('flag') && squares[i].classList.contains('bomb')){
+                matches++;
+            }
+            if(matches === bombAmount){
+                clearInterval(intervalRef);
+                timer.innerHTML = 'WIN';
+                emojiBtn.innerHTML = '😎';
+                result.innerHTML = 'YOU WIN!'
+                isGameOver = 'true';
+            }
+        }
     }
 
 
