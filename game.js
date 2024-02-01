@@ -149,35 +149,91 @@ document.addEventListener('DOMContentLoaded', () => {
                 Click(newSquare);
             }
             if(currentId < 90 && !isLeftEdge){
-                const newId = squares[parseInt(currentId) + 1 + width].id;
+                const newId = squares[parseInt(currentId) - 1 + width].id;
                 const newSquare = document.getElementById(newId);
                 Click(newSquare);
             }
-            //34:50
-        })
+            if(currentId <= 88 && !isRightEdge) {
+                const newId = squares[parseInt(currentId) + 1 + width].id;
+                const newSquare = document.getElementById(newId);
+            Click(newSquare);
+            }
+            if(currentId <= 89){
+                const newId = squares[parseInt(currentId)  + width].id;
+                const newSquare = document.getElementById(newId);
+                Click(newSquare);
+            }
+        }, 10);
     }
-
     // Timer
     let startTime = function () {
-        // Implement the timer logic
+        intervalRef = setInterval(() =>{
+          count+=10;
+          let s = Math.floor((count / 1000));
+          timer.innerHTML = s;
+          if(s >= 90){
+              clearInterval(intervalRef);
+              timeUp();
+          }
+        }, 10);
+        removeEventListener('click', startTime);
     }
+
+    window.addEventListener('click', startTime);
+
+    function timeUp(){
+        timer.innerHTML = 'END';
+        emojiBtn.innerHTML = '😔';
+        result.innerHTML = 'Out Of Time!';
+        isGameOver = 'true';
+
+        //Showing all bombs
+        squares.forEach(square => {
+            if(square.classList.contains('bombs')){
+                square.innerHTML = '💣';
+            }
+        });
+    }
+
 
     // Game over function
     function gameOver(square) {
-        // Implement the game over functionality
-        isGameOver = true;
-        emojiBtn.innerHTML = '😵';
-        result.innerHTML = 'Game Over!';
-        revealBombs();
+        clearInterval(intervalRef);
+        timer.innerHTML = 'END';
+        emojiBtn.innerHTML = '😵‍💫';
+        result.innerHTML = 'BOOM! Game Over!';
+        isGameOver = 'true';
+
+        //Showing all bombs
+        squares.forEach(square => {
+            if (square.classList.contains('bombs')) {
+                square.innerHTML = '💣';
+            }
+        });
     }
 
-    // Check for a win
-    function checkWin() {
-        // Implement the logic to check for a win
+    function checkForWin(){
+        let matches = 0;
+        for(let i = 0; i < squares.length; i++){
+            if(squares[i].classList.contains('flag') && squares[i].classList.contains('bomb')){
+                matches++;
+            }
+            if(matches === bombAmount){
+                clearInterval(intervalRef);
+                timer.innerHTML = 'WIN';
+                emojiBtn.innerHTML = '😎';
+                result.innerHTML = 'YOU WIN!'
+                isGameOver = 'true';
+            }
+        }
     }
 
-    // Reveal all bombs
-    function revealBombs() {
-        // Implement the logic to reveal all bombs
-    }
+    //Reload Game
+    emojiBtn.addEventListener('click', function (e){
+        emojiBtn.style.borderColor = '#F0B7A4 #FFEBCF #FFEBCF #F0B7A4';
+        location.reload();
+    })
+
+
 });
+//41:30
