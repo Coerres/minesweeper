@@ -228,9 +228,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    //Reload Game
+    emojiBtn.addEventListener('click', function (e){
+        emojiBtn.style.borderColor = '#F0B7A4 #FFEBCF #FFEBCF #F0B7A4';
+        location.reload();
+    })
 
-    // Reveal all bombs
-    function revealBombs() {
-        // Implement the logic to reveal all bombs
-    }
+
 });
