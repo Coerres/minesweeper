@@ -149,11 +149,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 Click(newSquare);
             }
             if(currentId < 90 && !isLeftEdge){
-                const newId = squares[parseInt(currentId) + 1 + width].id;
+                const newId = squares[parseInt(currentId) - 1 + width].id;
                 const newSquare = document.getElementById(newId);
                 Click(newSquare);
             }
-            //34:50
+            if(currentId <= 88 && !isRightEdge) {
+                const newId = squares[parseInt(currentId) + 1 + width].id;
+                const newSquare = document.getElementById(newId);
+            Click(newSquare);
+            }
+            if(currentId <= 89){
+                const newId = squares[parseInt(currentId)  + width].id;
+                const newSquare = document.getElementById(newId);
+                Click(newSquare);
+            }
         })
     }
 
