@@ -200,18 +200,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Game over function
-    function gameOver(square) {
-        // Implement the game over functionality
-        isGameOver = true;
-        emojiBtn.innerHTML = '😵';
-        result.innerHTML = 'Game Over!';
-        revealBombs();
+    function gameOver(square) {}
+        clearInterval(intervalRef);
+        timer.innerHTML = 'END';
+        emojiBtn.innerHTML = '😵‍💫';
+        result.innerHTML = 'BOOM! Game Over!';
+        isGameOver = 'true';
+
+
+
+    function checkForWin(){
+
     }
 
-    // Check for a win
-    function checkWin() {
-        // Implement the logic to check for a win
-    }
 
     // Reveal all bombs
     function revealBombs() {
