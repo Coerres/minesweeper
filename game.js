@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
                square.innerHTML = '🚩';
                flags++;
                flagsLeft.innerHTML = bombAmount - flags;
+               checkForWin();
            } else {
                square.classList.remove('flag');
                square.innerHTML = '';
@@ -99,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(isGameOver) {return}
         if(square.classList.contains('checked') || square.classList.contains('flag')) {return};
         if(square.classList.contains('bomb')){
+            gameOver();
 
         }else{
             let total = square.getAttribute('data');
@@ -111,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 square.innerHTML = total;
                 return
             }
+            checkSquare(square, currentId);
         }
         square.classList.add('checked');
 
@@ -134,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 Click(newSquare);
             }
             if(currentId > 10){
-                const newId = squares[parseInt(currentId - width].id;
+                const newId = squares[parseInt(currentId - width)].id;
                 const newSquare = document.getElementById(newId);
                 Click(newSquare);
             }
@@ -167,29 +170,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     // Timer
     let startTime = function () {
-        intervalRef = setInterval(() =>{
-          count+=10;
-          let s = Math.floor((count / 1000));
-          timer.innerHTML = s;
-          if(s >= 90){
-              clearInterval(intervalRef);
-              timeUp();
-          }
+        intervalRef = setInterval(() => {
+            count += 10;
+            let s = Math.floor(count / 1000);
+            timer.innerHTML = s;
+            if (s >= 90) {
+                clearInterval(intervalRef);
+                timeUp();
+            }
         }, 10);
-        removeEventListener('click', startTime);
+        document.removeEventListener('click', startTime);
     }
 
     window.addEventListener('click', startTime);
 
-    function timeUp(){
+    function timeUp() {
         timer.innerHTML = 'END';
         emojiBtn.innerHTML = '😔';
         result.innerHTML = 'Out Of Time!';
-        isGameOver = 'true';
+        isGameOver = true;
 
-        //Showing all bombs
+        // Showing all bombs
         squares.forEach(square => {
-            if(square.classList.contains('bombs')){
+            if (square.classList.contains('bomb')) {
                 square.innerHTML = '💣';
             }
         });
@@ -228,12 +231,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    //Reload Game
-    emojiBtn.addEventListener('click', function (e){
+    // Reload Game
+    emojiBtn.addEventListener('click', function (e) {
         emojiBtn.style.borderColor = '#F0B7A4 #FFEBCF #FFEBCF #F0B7A4';
         location.reload();
-    })
-
-
+    });
 });
 //41:30
