@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let intervalRef = null;
     let isGameOver = false;
 
+
     // Create game board
     function createBoard() {
         // Get shuffled game array with random bombs
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const gameArray = emptyArray.concat(bombsArray);
         const shuffledArray = gameArray.sort(() => Math.random() - 0.5);
         emojiBtn.innerHTML = '😀';
-        flagsLeft.innerHTML = bombAmount;
+        flagsLeft.innerHTML = String(bombAmount);
 
         // Create tiles with bombs
         for (let i = 0; i < width * width; i++) {
