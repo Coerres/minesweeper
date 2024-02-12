@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Check neighboring squares once square is clicked
-    function checkSquare(square, currentId) {
+    function checkSquare(square, currentId, Click) {
 
         const isLeftEdge = (currentId % width === 0)
         const isRightEdge = (currentId % width === -1)
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if(currentId <= 88 && !isRightEdge) {
                 const newId = squares[parseInt(currentId) + 1 + width].id;
                 const newSquare = document.getElementById(newId);
-            Click(newSquare);
+                Click(newSquare);
             }
             if(currentId <= 89){
                 const newId = squares[parseInt(currentId)  + width].id;
